@@ -11,5 +11,17 @@
     "nodejs"
   ],
   "author": "Justin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike1tesla/NodeJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mike1tesla/NodeJS/issues"
+  },
+  "homepage": "https://github.com/mike1tesla/NodeJS#readme"
 }
