@@ -1,21 +1,16 @@
-const express = require('express') // CJS
-const path = require('path')
-// import express from 'express' // ESM
-const app = express()
-const port = 3000
-//config template engine
-app.set('views', path.join(__dirname + '/views')) // lay ra duong dan tuyet doi
-app.set('view engine', 'ejs')
+require('dotenv').config();
+const express = require('express'); // CJS
+const viewEngineConfig = require('./configs/viewEngine');
+const webRoutes = require('./routes/web');
 
-//khai bao route
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-app.get('/justin', (req, res) => {
-    // res.send('Hello World!')
-    res.render('sample.ejs')
-})
+const app = express();
+const port = process.env.PORT || 8888;
+const hostname = process.env.HOST_NAME;
 
-app.listen(port, () => {
+viewEngineConfig(app); //config template engine + static files
+
+app.use('/', webRoutes); // khai bao route, params '/v1' tao ra cac version link mac dinh  
+
+app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`)
 })
